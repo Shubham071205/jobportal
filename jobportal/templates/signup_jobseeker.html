@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Job Seeker Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e7eef7;
+            margin: 0;
+        }
+        .container {
+            width: 380px;
+            padding: 30px;
+            background: #fff;
+            margin: 70px auto;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #0056d6;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: 1px solid #c6c6c6;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 18px;
+            background: #0056d6;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #003c9e;
+        }
+        .link {
+            text-align: center;
+            margin-top: 12px;
+        }
+        a {
+            color: #0056d6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Job Seeker Account</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Email Address" required>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Create Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="link">
+        Already have an account? <a href="/login-jobseeker/">Login</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Job Seeker Dashboard</title></head>
+<body>
+<div class="sidebar"> <!-- copy styles from earlier example or keep simple -->
+    <h2>Job Seeker</h2>
+    <a href="{% url 'jobseeker_dashboard' %}">Dashboard</a>
+    <a href="#">Search Jobs</a>
+    <a href="#">My Applications</a>
+    <a href="#">My Profile</a>
+    <a href="/logout/">Logout</a>
+</div>
+
+<div class="main-content">
+    <p>Welcome, {{ user.first_name|default:user.username }} 👋</p>
+
+    <h3>Recommended Jobs</h3>
+    {% for job in recommended_jobs %}
+        <div>
+            <strong>{{ job.title }}</strong> — {{ job.company }} ({{ job.location }})
+            <button>Apply</button>
+        </div>
+    {% endfor %}
+
+    <h3>Recent Applications</h3>
+    {% for app in recent_applications %}
+        <div>
+            <strong>{{ app.title }}</strong> — {{ app.company }} — Status: {{ app.status }}
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
